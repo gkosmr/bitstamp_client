@@ -3,7 +3,7 @@ module BitstampClient
     class Private < Base
 
       def perform(endpoint_name, version, args)
-        result   = request_manager.call(url(endpoint_name, version, args.delete(:pair)), endpoint_name, args)
+        result   = request_manager.call(url(endpoint_name, version, args.delete(:pair)), args)
         Hashie::Mash.new({ result: result}).result
       end
 

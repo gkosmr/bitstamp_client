@@ -2,21 +2,18 @@ module BitstampClient
   module Requests
     class Post < Base
 
-      def call(url, endpoint_name, options)
+      def call(url, options)
         super
-
-        @url           = url
-        @endpoint_name = endpoint_name
-
-        response       = HTTParty.post(url, params(options)).parsed_response
-        puts response.inspect
-        response['error'].empty? ? response['result'] : response['error']
+        @url = url
+        HTTParty.post(url, params(options)).parsed_response
       end
 
       private
 
       def params(options = {})
-        { body: content_manager::Body.new(config, endpoint_name, options, url).call }
+        {
+          body: content_manager::Body.new(config, options, url).call 
+        }
       end
 
       def content_manager

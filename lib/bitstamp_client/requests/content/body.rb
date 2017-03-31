@@ -3,11 +3,10 @@ module BitstampClient
     module Content
       class Body
 
-        attr_accessor :config, :endpoint_name, :options, :url
+        attr_accessor :config, :options, :url
 
-        def initialize(config, endpoint_name, options, url)
+        def initialize(config, options, url)
           @config          = config
-          @endpoint_name   = endpoint_name
           @url             = url
 
           @options         = options

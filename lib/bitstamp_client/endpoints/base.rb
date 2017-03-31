@@ -43,8 +43,7 @@ module BitstampClient
       end
 
       def url(endpoint_name, version, pair)
-        pair = "" if pair.nil?
-        config.base_uri + version + '/' + endpoint_name + '/' + pair
+        [config.base_uri, version, endpoint_name, pair].reject{ |part| part.nil? || part == "" }.join('/') + '/'
       end
 
       def raise_exception(options, args)
