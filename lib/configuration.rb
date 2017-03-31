@@ -1,8 +1,7 @@
 module BitstampClient
   class Configuration
 
-    attr_accessor :api_key, :api_secret, :base_uri, :limiter_interface,
-                  :api_version, :tier, :limiter, :limit_current_count
+    attr_accessor :api_key, :api_secret, :base_uri, :customer_id
 
     def initialize
       @api_key             = ENV['BITSTAMP_API_KEY']
