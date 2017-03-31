@@ -9,6 +9,7 @@ module BitstampClient
         @endpoint_name = endpoint_name
 
         response       = HTTParty.post(url, params(options)).parsed_response
+        puts response.inspect
         response['error'].empty? ? response['result'] : response['error']
       end
 
