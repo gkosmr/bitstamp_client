@@ -30,16 +30,6 @@ module BitstampClient
           :unconfirmed_bitcoint_deposits => [:unconfirmed_btc]
         }
       end
-
-      def raise_exception(options, args)
-        return unless options.is_a?(Hash)
-
-        leftover = options[:params] - args.keys
-
-        if leftover.length > 0
-          fail ::BitstampClient::ArgumentError, "Required options absent. Input must include #{leftover}"
-        end
-      end
     end
   end
 end

@@ -21,11 +21,6 @@ module BitstampClient
 
         }
       end
-
-      private
-
-      def raise_exception(*)
-      end
     end
   end
 end
