@@ -4,8 +4,7 @@ module BitstampClient
 
       def perform(endpoint_name, version, args)
         response = request_manager.call(url(endpoint_name, version, args.delete(:pair)), args)
-        hash = Hashie::Mash.new(JSON.parse(response.body))
-        hash[:result]
+        Hashie::Mash.new(JSON.parse(response.body))
       end
 
       def v2_endpoints
