@@ -14,6 +14,7 @@ module BitstampClient
         end
 
         def call
+          puts options['nonce'].inspect
           {
             'key' => config.api_key,
             'signature' => signature
