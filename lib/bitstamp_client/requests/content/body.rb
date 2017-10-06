@@ -30,7 +30,7 @@ module BitstampClient
         # because the Kraken API requires every request within a given session to use a
         # monotonically increasing nonce value. This approach splits the difference.
         def nonce
-          high_bits = (Time.now.to_f * 10000).to_i << 16
+          high_bits = (Time.now.to_f * 1000 * 10000).to_i << 16 # Time.now.to_f is in seconds
           low_bits  = SecureRandom.random_number(2 ** 16) & 0xffff
           (high_bits | low_bits).to_s
         end
