@@ -27,7 +27,8 @@ module BitstampClient
           :withdrawal_requests => [:withdrawal_requests],
           :bitcoin_withdrawal => [:bitcoin_withdrawal, params: [:amount, :address]],
           :bitcoin_deposit_address => [:bitcoin_deposit_address],
-          :unconfirmed_btc => [:unconfirmed_bitcoint_deposits]
+          :unconfirmed_btc => [:unconfirmed_bitcoint_deposits],
+          :order_status => [:order_status, params: [:id]]
         }
       end
     end
